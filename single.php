@@ -1,76 +1,40 @@
-<?php
-/* 		POST-TEMPLATE
+<?php get_header(); ?>
 
-	*		TODO: Post-Seitentemplate nach Design erstellen
-	*		TODO: ACF einbinden
-	*		TODO: AOS-Animationen erstellen
+<div class="main" role="main">
 
-*/
+<?php if( have_rows('bereiche') ): ?>
+  <?php while( have_rows('bereiche') ): the_row();
 
-get_header(); ?>
+  $sections = get_sub_field('section');
 
-	<main role="main">
-	<!-- section -->
-	<section>
+  if ( $sections == "Hero" ) {
+   include 'sections/hero.php';
+  } elseif ( $sections == "Safari Slider" ) {
+   include 'sections/slide.php';
+  } elseif ( $sections == "Safari Details" ) {
+   include 'sections/details.php';
+  } elseif ( $sections == "Map" ) {
+    include 'sections/map.php';
+  } elseif ( $sections == "Newsletter Sign-In" ) {
+    include 'sections/cta.php';
+  } elseif ( $sections == "Instagram Feed" ) {
+    include 'sections/insta.php';
+  } elseif ( $sections == "Safari Buchen" ) {
+    include 'sections/offer.php';
+  } elseif ( $sections == "Touren" ) {
+    include 'sections/touren.php';
+  } elseif ( $sections == "Sansibar Touren" ) {
+    include 'sections/sansibar.php';
+  } elseif ( $sections == "Textinhalt" ) {
+    include 'sections/section.php';
+  } elseif ( $sections == "Alternierender Inhalt" ) {
+    include 'sections/alternate.php';
+  } elseif ( $sections == "About" ) {
+    include 'sections/about.php';
+  } ?>
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+ <?php endwhile; ?>
+<?php endif; ?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
-
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
-
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'Spectreblank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'Spectreblank' ), __( '1 Comment', 'Spectreblank' ), __( '% Comments', 'Spectreblank' )); ?></span>
-			<!-- /post details -->
-
-			<?php the_content(); // Dynamic Content ?>
-
-			<?php the_tags( __( 'Tags: ', 'Spectreblank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'Spectreblank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'Spectreblank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
-
-		</article>
-		<!-- /article -->
-
-	<?php endwhile; ?>
-
-	<?php else: ?>
-
-		<!-- article -->
-		<article>
-
-			<h1><?php _e( 'Sorry, nothing to display.', 'Spectreblank' ); ?></h1>
-
-		</article>
-		<!-- /article -->
-
-	<?php endif; ?>
-
-	</section>
-	<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>

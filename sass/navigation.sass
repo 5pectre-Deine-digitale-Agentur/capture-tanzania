@@ -1,32 +1,233 @@
 // Navigation
 // Replace with your Code
 #navigation
+  top: 0
   width: 100%
-  padding: 20px 0
-  background: $black
+  z-index: 10
+  position: fixed
+  padding: 10px 0
+  transition: .5s
 
-  .container
-    .row
-      .nav-img-col
-        display: flex
-        flex-direction: row
-        justify-content: center
+  .nav-menu__col
+    position: relative
 
-        img.logo
-          max-height: 100%
-          height: 50px
+    .burger
+      width: 50px
+      height: 50px
+      position: absolute
+      right: 5px
+      top: 50%
+      transform: translateY(-50%)
+      z-index: 11
+      display: none
 
-      .menu-item-col
-        display: flex
-        flex-direction: row
+      @include md
+        display: block
+
+      &.active
+        .line
+          width: 0
+          transition: .3s
+
+          &::after
+            transform: translate(-50%,-50%) rotate(45deg)
+            transition: .5s
+
+          &::before
+            transform: translate(-50%,-50%)  rotate(-45deg)
+            transition: .5s
+
+      .line
+        width: 30px
+        height: 3px
+        border-radius: 2px
+        background: $black
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        transition: .5s
+
+        &::after
+          width: 30px
+          height: 3px
+          border-radius: 2px
+          background: $black
+          content: ""
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%,calc(-50% + 8px))
+          transition: .5s
+
+        &::before
+          width: 30px
+          height: 3px
+          border-radius: 2px
+          background: $black
+          content: ""
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%,calc(-50% - 7px))
+          transition: .5s
+
+    #menu-main
+      display: flex
+      width: 100%
+      height: 100%
+      flex-direction: row
+      justify-content: flex-end
+      align-items: center
+      list-style: none
+
+      @include md
+        flex-direction: column
+        width: 90vw
+        background: $white
+        height: 100vh
         justify-content: flex-start
-        align-items: center
+        position: absolute
+        right: 0
+        top: -10px
+        padding-top: 100px
+        box-shadow: -10px -10px 10px rgba(0,0,0,0.4)
+        transform: translateX(150vw)
+        overflow: hidden
+        transition: .5s
 
-      .nav-icon-col
+        .menu-item
+          margin-right: 0 !important
+          width: 100%
+          height: 50px
+          position: relative
+          list-style: none
+
+          &::after
+            content: ""
+            width: 80%
+            height: 1px
+            background: $black
+            opacity: .1
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            bottom: 0
+
+          &:first-child::before
+            content: ""
+            width: 80%
+            height: 1px
+            background: $black
+            opacity: .1
+            position: absolute
+            left: 50%
+            transform: translateX(-50%)
+            top: 0
+
+
+          a
+            width: 100%
+            height: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+
+        &.toggled
+          transform: translateX(calc(((100vw - 540px) / 2) ))
+          transition: .5s
+
+        &::after
+          content: ""
+          width: 100vw
+          height: 100vw
+          position: absolute
+          bottom: 0
+          right: -15vw
+          background: url('img/logos/stamp.svg')
+          background-size: contain
+          background-position: right
+          background-repeat: no-repeat
+          opacity: .1
+
+      @include sm
+        flex-direction: column
+        width: 90vw
+        background: $white
+        height: 100vh
+        justify-content: flex-start
+        position: absolute
+        right: 0
+        top: -10px
+        padding-top: 100px
+        box-shadow: -10px -10px 10px rgba(0,0,0,0.4)
+        transform: translateX(100%)
+        overflow: hidden
+        transition: .5s
+
+        &.toggled
+          transform: translateX(0)
+          transition: .5s
+
+        &::after
+          content: ""
+          width: 100vw
+          height: 100vw
+          position: absolute
+          bottom: 0
+          right: -15vw
+          background: url('img/logos/stamp.svg')
+          background-size: contain
+          background-position: right
+          background-repeat: no-repeat
+          opacity: .1
+
+      .menu-item
+        margin-right: 50px
+
+        a
+          color: $black
+          font-family: $heading
+
+        &:last-child
+          margin-right: 0
+
+  .contact__column
+
+    @include xl
+      display: none
+
+    .contact
+      display: flex
+      width: 100%
+      height: 100%
+      flex-direction: row
+      justify-content: space-around
+      align-items: center
+
+      .item
+        cursor: pointer
         display: flex
         flex-direction: row
-        justify-content: flex-end
         align-items: center
 
-        ul li
-          margin-left: 20px
+        span
+          font-family: $heading
+          color: $black
+          margin-left: 25px
+
+        .icon
+          width: 35px
+          height: 35px
+          background: $color1
+          border-radius: 50px
+          position: relative
+
+          i
+            color: $white
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%,-50%)
+            display: block

@@ -1,0 +1,60 @@
+section#alternate
+  .container
+    margin: 100px auto
+
+    .detail__img
+      padding: 0
+      margin: 0
+
+      .image__container
+        margin: auto
+        overflow: hidden
+        transform: rotate(-5deg)
+        position: relative
+        z-index: 2
+        box-shadow: 20px 11px 38px rgba(0,0,0,.2)
+        border: 10px solid $white
+
+        &.reverse
+          transform: rotate(5deg)
+          z-index: 0
+
+        @include lg
+          height: 300px
+          width: 300px
+
+        @include xs
+          width: 100%
+
+        img.detail__image
+          width: 100%
+          max-width: 100%
+          height: auto
+
+    .detail__card
+      padding: 0
+      margin: 0
+      z-index: 1
+      display: flex
+      flex-direction: column
+      justify-content: center
+
+      .content
+        padding: 100px 50px
+        box-shadow: 20px 11px 38px rgba(0,0,0,.2)
+        z-index: 0
+        background: $white
+
+        @include md
+          margin: 0 10px
+          padding: 50px 30px 30px
+
+        h2
+          margin-bottom: 50px
+
+        .button
+          float: right
+          margin-right: 50px
+
+          &:last-child
+            transform: translateX(-25px)

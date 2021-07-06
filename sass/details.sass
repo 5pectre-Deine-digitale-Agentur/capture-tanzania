@@ -1,0 +1,125 @@
+section#details
+  padding-top: 50px
+  position: relative
+
+  .background
+    height: 700px
+    width: 100%
+    margin-top: -20%
+    background-attachment: fixed !important
+
+    @include md
+      height: 500px
+      margin-top: -50%
+      background-attachment: scroll !important
+
+  .splide__2
+    .splide__arrows
+      position: relative
+      margin: auto
+
+      .button__container
+        position: absolute
+        top: -175px
+        left: 30%
+        display: flex
+        flex-direction: row
+
+        @include lg
+          left: 20px
+
+        @include sm
+          padding-bottom: 50px
+
+        .splide__arrow
+          position: relative
+          transform: translateY(0)
+          left: 0
+          right: 0
+          border-radius: 0
+          background: $color1
+          opacity: 1
+          margin-right: 5px
+          height: 45px
+          width: 45px
+
+          i
+            color: $white
+
+    .splide__track
+      overflow: visible
+
+  .slide__content
+    .detail__img
+      padding: 0
+      margin: 0
+
+      .image__container
+        margin: auto
+        overflow: hidden
+        transform: rotate(-5deg)
+        position: relative
+        z-index: 2
+        box-shadow: 20px 11px 38px rgba(0,0,0,.2)
+        border: 10px solid $white
+
+        @include lg
+          height: 300px
+          width: 300px
+
+        @include xs
+          width: 100%
+
+        img.detail__image
+          width: 100%
+          max-width: 100%
+          height: auto
+
+    .detail__card
+      padding: 0
+      margin: 0
+      z-index: 1
+
+      .content
+        padding: 100px 50px
+        box-shadow: 20px 11px 38px rgba(0,0,0,.2)
+        z-index: 0
+        background: $white
+
+        @include md
+          margin: 0 10px
+          padding: 50px 30px 30px
+
+        .button
+          float: right
+          margin-right: 50px
+
+          @include md
+            transform: translateY(-30px)
+
+        .gallery
+          display: grid
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+          grid-template-rows: auto
+          grid-gap: 10px
+          margin-bottom: 100px
+
+          @include md
+            margin-bottom: 50px
+            grid-template-columns: 1fr 1fr
+            grid-template-rows: auto
+
+          .gallery__item
+            width: 100%
+            border-radius: 10px
+            overflow: hidden
+            position: relative
+            overflow: hidden
+
+            img
+              width: auto
+              height: 100%
+              position: absolute
+              top: 50%
+              left: 50%
+              transform: translate(-50%,-50%)

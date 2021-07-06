@@ -1,17 +1,11 @@
-<!-- SECTION
-  TODO: Sections werden in Feldgruppen angelegt
--->
-
-<?php if( have_rows('section') ): ?>
-  <?php while( have_rows('section') ): the_row(); ?>
-
-    <section class="section" id="section" style="background: url(<?php echo get_template_directory_uri(); ?>/img/assets/background.png); background-size: cover; background-position: center">
-      <div class="wrapper">
-        <div class="centered">
-          <h1 class="section_title"><?php echo the_sub_field('sample');?></h1>
-        </div>
+<?php $content = get_sub_field('text_content'); ?>
+<section>
+  <div class="container" style="margin-top: 20vh">
+    <div class="row">
+      <div class="col-12">
+        <h1 style="margin-bottom: 50px"><?php the_title(); ?></h1>
+        <?php echo $content ?>
       </div>
-    </section>
-
-  <?php endwhile; ?>
-<?php endif; ?>
+    </div>
+  </div>
+</section>

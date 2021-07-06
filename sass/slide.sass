@@ -1,0 +1,106 @@
+section#slide
+  max-width: 100vw
+  position: relative
+  box-sizing: border-box
+
+  .container-fluid.slide__container
+    width: calc(100% - ((100% - 1320px) / 2))
+    margin-left: calc((100% - 1320px) / 2)
+    padding: 0
+    transform: translateY(-100px)
+
+    @include xxl
+      width: calc(100% - ((100% - 1140px) / 2))
+      margin-left: calc((100% - 1140px) / 2)
+      transform: translateY(-80px)
+
+    @include xl
+      width: calc(100% - ((100% - 960px) / 2))
+      margin-left: calc((100% - 960px) / 2)
+      transform: translateY(-70px)
+
+    @include lg
+      width: calc(100% - ((100% - 720px) / 2))
+      margin-left: calc((100% - 720px) / 2)
+      transform: translateY(-60px)
+
+    @include md
+      width: calc(100% - ((100% - 540px) / 2))
+      margin-left: calc((100% - 540px) / 2)
+      transform: translateY(-50px)
+
+    @include sm
+      width: calc(100% - 5px)
+      margin-left: 5px
+
+    .row
+      .splide__arrows
+        margin-top: 100px
+        max-height: 300px
+        height: 300px
+        position: relative
+        display: flex
+        flex-direction: column
+        justify-content: flex-end
+
+        @include md
+          height: 200px
+
+        .button__container
+          display: flex
+          flex-direction: row
+          justify-content: flex-end
+          margin: 5px
+
+          button.splide__arrow
+            background: $color1
+            width: 35px
+            height: 35px
+            border-radius: 0
+            opacity: 1
+            position: relative
+            display: block
+            margin: 5px
+            left: inherit
+            right: inherit
+
+            i
+              position: absolute
+              top: 50%
+              left: 50%
+              transform: translate(-50%,-50%)
+
+
+  .splide__track
+    background: $black
+    padding: 0
+
+    .splide__slide.is-active
+      img
+        width: auto
+        height: 120%
+        opacity: 1
+        transition: .3s
+
+    .splide__slide
+      height: 400px
+      overflow: hidden
+
+      @include md
+        height: 300px
+
+      img
+        width: auto
+        height: 100%
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        opacity: .5
+        transition: .3s
+
+      h3
+        position: absolute
+        top: 25px
+        left: 15px
+        opacity: 1

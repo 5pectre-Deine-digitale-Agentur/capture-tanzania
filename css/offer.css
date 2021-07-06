@@ -1,0 +1,7 @@
+section#offer {
+  padding-top: 150px;
+}
+section#offer .container .row .offer__img img {
+  max-width: 100%;
+  width: 100%;
+}

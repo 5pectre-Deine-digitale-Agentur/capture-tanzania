@@ -1,0 +1,131 @@
+section#offer
+  .splide
+    display: none
+
+    .splide__arrows
+      position: relative
+      display: flex
+      flex-direction: row
+      width: fit-content
+
+      @include lg
+        transform: translateX(50px)
+
+      @include md
+        transform: translateX(20px)
+
+      button.splide__arrow
+        background: $color1
+        width: 50px
+        height: 50px
+        border-radius: 0
+        opacity: 1
+        position: relative
+        display: block
+        margin: 5px
+        left: inherit
+        right: inherit
+
+        i
+          color: $white
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%,-50%)
+
+    @include lg
+      display: block
+
+    .splide__slide
+      height: 50vh
+      overflow-y: visible
+
+      .img__container
+        width: 100%
+        height: 100%
+        position: relative
+        background-size: cover !important
+        background-position: center !important
+        background-repeat: no-repeat !important
+
+  .container-fluid
+    .row
+      .offer__img
+        padding: 0
+        z-index: 2
+
+        img
+          max-width: 100%
+          width: 100%
+
+          @include lg
+            display: none
+
+      .offer__content
+        .sticky__container
+          position: sticky
+          top: 100px
+          width: 100%
+          overflow: hidden
+
+          @include lg
+            position: relative
+            top: auto
+
+          .content
+            display: flex
+            width: 200%
+            flex-direction: row
+            z-index: 0
+
+            &.active
+              transform: translateX(-50%)
+              transition: .5s
+
+            .booking
+              margin: 50px
+              width: calc(50% - 100px)
+              height: fit-content
+              align-self: flex-end
+
+              @include md
+                margin: 50px 20px
+                width: calc(50% - 40px)
+
+            .call_to__action
+              width: calc(50% - 100px)
+              margin: 50px
+
+              ul
+                display: block
+                list-style: initial
+
+                li
+                  display: block
+                  list-style: initial
+                  margin-top: 5px
+
+              @include md
+                margin: 50px 20px
+                width: calc(50% - 40px)
+
+              .gallery
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr
+                grid-template-rows: 1fr
+                grid-gap: 10px
+                margin-bottom: 100px
+
+                .gallery__item
+                  width: 100%
+                  border-radius: 10px
+                  overflow: hidden
+                  position: relative
+
+                  img
+                    width: auto
+                    height: 100%
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%,-50%)

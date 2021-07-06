@@ -1,12 +1,25 @@
 // Footer
-
 // Replace with your own Code
+
 footer
   padding-top: 100px
-  background: $black
+  background: $white
+  position: relative
+  z-index: 0
+
+  .spacer
+    display: block
+
+    @include lg
+      display: none
+
+  .sitemap, .contact, .legal
+    @include lg
+      margin-top: 50px
 
   h4
     margin-bottom: 20px
+    color: $color1
 
 
   ul.menu
@@ -18,8 +31,12 @@ footer
       a
         margin-right: 0
 
+a.contact
+  font-weight: 900
+  color: black
+
 .copy
-  background: $gradient3
+  background: $black
   margin-top: 50px
 
 .copyright

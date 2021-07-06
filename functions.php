@@ -124,6 +124,9 @@ function my_footer_enqueue_footer()
 
     wp_register_script( 'animejs', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js', array(), '1.0', true );
     wp_enqueue_script( 'animejs' );
+
+    wp_register_script( 'splide', get_template_directory_uri() . '/js/lib/splide/dist/js/splide.min.js', array(), '1.0', true );
+    wp_enqueue_script( 'splide' );
 }
 
 // Load Admin Scripts
@@ -149,6 +152,9 @@ function Spectreblank_styles()
 
     wp_register_style('Spectreblank', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('Spectreblank');
+
+    wp_register_style('splide', get_template_directory_uri() . '/js/lib/splide/dist/css/splide.min.css', array(), '1.0', 'all');
+    wp_enqueue_style('splide');
 }
 
 // Load Spectre Blank Admin Stylesheet
@@ -383,6 +389,7 @@ add_action('wp_enqueue_scripts', 'Spectreblank_styles'); // Add Theme Stylesheet
 add_action( 'admin_enqueue_scripts', 'my_admin_style'); // Add Admin Stylesheet
 add_action('init', 'register_Spectre_menu'); // Add Spectre Blank Menu
 add_action('init', 'create_post_type_Spectre'); // Add our Spectre Blank Custom Post Type
+add_action('init', 'create_post_type_Zanzibar'); // Add our Spectre Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'Spectrewp_pagination'); // Add our Spectre Pagination
 
@@ -440,18 +447,55 @@ function create_post_type_Spectre()
     register_post_type('Spectre-blank', // Register Custom Post Type
         array(
         'labels' => array(
-            'name' => __('Testimonials', 'Spectreblank'), // Rename these to suit
-            'singular_name' => __('Testimonial', 'Spectreblank'),
+            'name' => __('Safari', 'Spectreblank'), // Rename these to suit
+            'singular_name' => __('Safari', 'Spectreblank'),
             'add_new' => __('Add New', 'Spectreblank'),
-            'add_new_item' => __('Add New Testimonial', 'Spectreblank'),
-            'edit' => __('Edit', 'Testimonial'),
-            'edit_item' => __('Edit Testimonial', 'Spectreblank'),
-            'new_item' => __('New Testimonial', 'Spectreblank'),
-            'view' => __('View Testimonial', 'Spectreblank'),
-            'view_item' => __('View Testimonial', 'Spectreblank'),
-            'search_items' => __('Search Testimonials', 'Spectreblank'),
-            'not_found' => __('No Testimonials found', 'Spectreblank'),
-            'not_found_in_trash' => __('No Testimonials found in Trash', 'Spectreblank')
+            'add_new_item' => __('Add New Safari', 'Spectreblank'),
+            'edit' => __('Edit', 'Safari'),
+            'edit_item' => __('Edit Safari', 'Spectreblank'),
+            'new_item' => __('New Safari', 'Spectreblank'),
+            'view' => __('View Safari', 'Spectreblank'),
+            'view_item' => __('View Safari', 'Spectreblank'),
+            'search_items' => __('Search Safari', 'Spectreblank'),
+            'not_found' => __('No Safari found', 'Spectreblank'),
+            'not_found_in_trash' => __('No Safari found in Trash', 'Spectreblank')
+        ),
+        'public' => true,
+        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive' => true,
+        'supports' => array(
+            'title',
+            'editor',
+            'excerpt',
+            'thumbnail'
+        ), // Go to Dashboard Custom Spectre Blank post for supports
+        'can_export' => true, // Allows export in Tools > Export
+        'taxonomies' => array(
+            'post_tag',
+            'category'
+        ) // Add Category and Post Tags support
+    ));
+}
+
+function create_post_type_Zanzibar()
+{
+    register_taxonomy_for_object_type('category', 'Zanzibar'); // Register Taxonomies for Category
+    register_taxonomy_for_object_type('post_tag', 'Zanzibar');
+    register_post_type('Zanzibar', // Register Custom Post Type
+        array(
+        'labels' => array(
+            'name' => __('Zanzibar Safari', 'Zanzibar'), // Rename these to suit
+            'singular_name' => __('Zanzibar Safari', 'Zanzibar'),
+            'add_new' => __('Add New', 'Zanzibar'),
+            'add_new_item' => __('Add New Zanzibar Safari', 'Zanzibar'),
+            'edit' => __('Edit', 'Zanzibar'),
+            'edit_item' => __('Edit Zanzibar Safari', 'Zanzibar'),
+            'new_item' => __('New Zanzibar Safari', 'Zanzibar'),
+            'view' => __('View Zanzibar Safari', 'Zanzibar'),
+            'view_item' => __('View Zanzibar Safari', 'Zanzibar'),
+            'search_items' => __('Search Zanzibar Safari', 'Zanzibar'),
+            'not_found' => __('No Safari found', 'Zanzibar'),
+            'not_found_in_trash' => __('No Safari found in Trash', 'Zanzibar')
         ),
         'public' => true,
         'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages

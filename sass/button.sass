@@ -1,26 +1,91 @@
 // Button
-
-.button a
-  padding: 14px 28px
+.button.primary
   background: $color1
-  font-weight: 500
-  border-radius: 10px
-  transition: .3s
+  padding: 12px 30px
   color: $white
+  border-radius: 50px
+  text-transform: uppercase
+  display: inline-block
 
-  &:hover
-    background: $color2
-    transition: .3s
+  span
+    color: $white
+    font-family: $heading
 
-.secondary-button a
-  padding: 14px 28px
-  border: 1px solid $color1
-  font-weight: 500
-  border-radius: 10px
-  transition: .3s
-  color: $white
+    i
+      &.light
+        padding-left: 20px
+        opacity: .5
 
-  &:hover
-    background: $color2
-    transition: .3s
-    border: 1px solid $color2
+  @include md
+    padding: 0
+    width: 100%
+    height: 48px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+.button.secondary
+  background: $color1
+  padding: 12px 30px
+  border-radius: 5px
+  text-transform: uppercase
+  display: inline-block
+
+  span
+    color: $black
+    font-family: $heading
+
+  i
+    color: $black
+    margin-right: 10px
+
+    &.light
+      padding-left: 20px
+      opacity: .5
+
+  @include md
+    padding: 0
+    width: 100%
+    height: 48px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+
+.button.tertiary
+  color: $black
+  border-radius: 50px
+  font-family: $heading
+  display: inline-block
+  position: relative
+  cursor: pointer
+
+  .dot
+    position: absolute
+    right: -50px
+    top: 50%
+    transform: translateY(-50%)
+    height: 35px
+    width: 35px
+    border-radius: 35px
+    background: orange
+
+    i
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+      color: $white
+
+.button.quartus
+  display: block
+
+  i
+    color: $black
+    margin-right: 15px
+
+  span
+    font-family: $heading
+    color: $color1
+    text-transform: uppercase

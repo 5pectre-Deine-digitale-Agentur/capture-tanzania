@@ -2,3 +2,7 @@
   position: sticky;
   top: 100px
 }
+
+#login h1 a {
+  height: auto !important
+}
